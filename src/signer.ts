@@ -16,7 +16,7 @@ export class GasModelSigner extends Wallet {
     }
 
     signTransaction(transaction: TransactionRequest) {
-        return ethers.utils.resolveProperties(<Transaction>transaction).then((tx: Transaction) => {
+        return ethers.utils.resolveProperties(transaction as Transaction).then((tx: Transaction) => {
             if (tx.from !== null) {
                 delete tx.from;
             }

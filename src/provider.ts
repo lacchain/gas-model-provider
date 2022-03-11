@@ -25,8 +25,8 @@ export class GasModelProvider extends providers.JsonRpcProvider {
             tx.hash = hash;
             return this._wrapTransaction(tx, hash, blockNumber);
         } catch (error) {
-            (<any>error).transaction = tx;
-            (<any>error).transactionHash = tx.hash;
+            (error as any).transaction = tx;
+            (error as any).transactionHash = tx.hash;
             throw error;
         }
     }
