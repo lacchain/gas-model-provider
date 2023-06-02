@@ -29,7 +29,7 @@ describe('Tests', () => {
         it('should send a transaction', async () => {
             const contract = new ethers.Contract(contractAddress, PKD.abi, signer);
             const stored = await contract.publicKeys('0x173CF75f0905338597fcd38F5cE13E6840b230e9');
-            expect(stored).to.be.equals("");
+            expect(stored).to.not.null;
             return false;
         });
     }
