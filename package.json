@@ -1,6 +1,6 @@
 {
 	"name": "@lacchain/gas-model-provider",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Ethers.js LAC-NET Gas Model provider",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
