@@ -1,6 +1,13 @@
 ## LAC-NET Gas Model provider for ether.js
 
 This repository contains the GasModelProvider ethers.js provider, an additional Provider to ethers.js to enable work with the gas model of LAC-NET.
+Ethers.js v6 compatible
+
+### Getting Started
+Installation
+
+    npm i @lacchain/gas-model-provider
+
 
 ### Usage
 ``` javascript
