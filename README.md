@@ -11,10 +11,15 @@ Installation
 
 ### Usage
 ``` javascript
-import provider from "@lacchain/gas-model-provider";
+import { LacchainProvider, LacchainSigner } from '@lacchain/gas-model-provider';
 
-const provider = new provider.GasModelProvider( RPC_URL );
-const signer = new provider.GasModelSigner( PRIVATE_KEY, provider, NODE_ADDRESS, EXPIRATION );
+const provider = new LacchainProvider(RPC_URL);
+const signer: LacchainSigner = new LacchainSigner(
+  PRIVATE_KEY,
+  provider,
+  NODE_ADDRESS,
+  EXPIRATION
+);
 ```
 
 Where:
@@ -28,13 +33,25 @@ Where:
 #### Deploy smart contract
 
 ``` javascript
-import ethers from "ethers";
+import { ContractFactory } from 'ethers';
+import { LacchainProvider, LacchainSigner } from '@lacchain/gas-model-provider';
 
-const factory = new ethers.ContractFactory( CONTRACT_ABI, CONTRACT_BYTECODE, signer )
-const contract = await factory.deploy( { gasLimit: 100000, gasPrice: 0 } )
-const receipt = await contract.deployTransaction.wait();
-console.log( `Contract Address: ${receipt.contractAddress}` );
-contractAddress = receipt.contractAddress;
+const signer: LacchainSigner = new LacchainSigner(
+  PRIVATE_KEY,
+  new LacchainProvider(RPC_URL!),
+  NODE_ADDRESS!,
+  EXPIRATION
+);
+
+const contractFactory = new ContractFactory(
+  CONTRACT_ABI,
+  CONTRACT_BYTECODE,
+  signer
+);
+
+const contract = await contractFactory.deploy();
+const txReceipt = await contract.deploymentTransaction()?.wait();
+console.log( `Contract Address: ${txReceipt?.contractAddress}` );
 ```
 
 Where:
@@ -46,16 +63,22 @@ Where:
 #### Invoke and call contract
 
 ``` javascript
-const hash = "0x7465737400000000000000000000000000000000000000000000000000000000";
-const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
-const tx = await contract.store(hash);
-const receipt = await tx.wait();
-console.log('Receipt', receipt);
-const stored = await contract.retreiveHash(SENDER_ADDRESS);
-console.log(stored);
+import { Contract } from 'ethers';
+import { LacchainProvider, LacchainSigner } from '@lacchain/gas-model-provider';
+
+const signer: LacchainSigner = new LacchainSigner(
+  PRIVATE_KEY,
+  new LacchainProvider(RPC_URL!),
+  NODE_ADDRESS!,
+  EXPIRATION
+);
+
+const contract = new Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+
+await (await contract.someContractFunction()).wait();
 ```
 
 Where:
 - CONTRACT_ADDRESS: is the contract address
 - CONTRACT_ABI: is the contract ABI
-- SENDER_ADDRESS: is the sender address
+
