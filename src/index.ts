@@ -1,7 +1,4 @@
-import { GasModelSigner } from "./signer";
-import { GasModelProvider } from "./provider";
-
-export { GasModelSigner } from "./signer";
-export { GasModelProvider } from "./provider";
-
-export default { GasModelSigner, GasModelProvider };
+export { LacchainSigner } from './lacchain-signer';
+export { LacchainProvider } from './lacchain-provider';
+export { LacchainTransaction } from './lacchain-transaction';
+export { LacchainTransactionRequest } from './lacchain-transaction-request';
