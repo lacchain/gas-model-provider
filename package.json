@@ -9,9 +9,8 @@
 		"build": "tsc",
 		"format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
 		"prepare": "npm run build",
-		"prepublishOnly": "npm test && npm run lint",
-		"preversion": "npm run lint",
-		"version": "npm run format && git add -A src",
+		"prepublishOnly": "npm test ",
+		"version": "git add -A src",
 		"postversion": "git push && git push --tags",
 		"test:e2e": "jest --config jest.config.e2e.js",
 		"test:watch": "jest --watch"

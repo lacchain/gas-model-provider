@@ -5,9 +5,7 @@ import {
   LacchainTransactionRequest,
 } from '../index';
 
-
 describe('index.ts', () => {
-
   test('exports', () => {
     expect(LacchainSigner).toBeTruthy();
     expect(LacchainProvider).toBeTruthy();
