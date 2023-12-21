@@ -11,9 +11,7 @@ import {
 
 import { LacchainTransaction } from './lacchain-transaction';
 
-
 export class LacchainProvider extends JsonRpcProvider {
-
   constructor(
     url: string | FetchRequest,
     network?: Networkish,

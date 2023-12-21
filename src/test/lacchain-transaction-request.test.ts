@@ -1,15 +1,22 @@
 import { LacchainTransactionRequest } from '../lacchain-transaction-request';
-import { anOriginalTxRequest, aNodeAddress, anExpirationTime } from './fixtures';
-
+import {
+  anOriginalTxRequest,
+  aNodeAddress,
+  anExpirationTime,
+} from './fixtures';
 
 describe('LacchainTransactionRequest', () => {
-
   let lacchainTxRequest: LacchainTransactionRequest;
 
-  const lacchainDataExpected = '0x52c28fab000000000000000000000000e81d7e5cd979be0a7f6b6c98957a66fdf6240273000000000000000000000000410bd47227a5ea8af81995fa3d66b770af6f85e2000000000000000000000000c6e2459991bfe27cca6d86722f35da23a1e4cb97000000000000000000000000000000000000000000000000000000006d752821';
+  const lacchainDataExpected =
+    '0x52c28fab000000000000000000000000e81d7e5cd979be0a7f6b6c98957a66fdf6240273000000000000000000000000410bd47227a5ea8af81995fa3d66b770af6f85e2000000000000000000000000c6e2459991bfe27cca6d86722f35da23a1e4cb97000000000000000000000000000000000000000000000000000000006d752821';
 
   beforeEach(() => {
-    lacchainTxRequest = new LacchainTransactionRequest(anOriginalTxRequest, aNodeAddress, anExpirationTime);
+    lacchainTxRequest = new LacchainTransactionRequest(
+      anOriginalTxRequest,
+      aNodeAddress,
+      anExpirationTime,
+    );
   });
 
   test('new', () => {
@@ -65,11 +72,15 @@ describe('LacchainTransactionRequest', () => {
   });
 
   test('accessList', () => {
-    expect(lacchainTxRequest.accessList).toEqual(anOriginalTxRequest.accessList);
+    expect(lacchainTxRequest.accessList).toEqual(
+      anOriginalTxRequest.accessList,
+    );
   });
 
   test('customData', () => {
-    expect(lacchainTxRequest.customData).toEqual(anOriginalTxRequest.customData);
+    expect(lacchainTxRequest.customData).toEqual(
+      anOriginalTxRequest.customData,
+    );
   });
 
   test('blockTag', () => {

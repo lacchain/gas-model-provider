@@ -1,9 +1,7 @@
 import { Transaction } from 'ethers';
 import { LacchainTransaction } from '../lacchain-transaction';
 
-
 describe('LacchainTransaction ', () => {
-
   let transaction: LacchainTransaction;
 
   const aTestHash =
@@ -53,7 +51,9 @@ describe('LacchainTransaction ', () => {
   });
 
   test('maxPriorityFeePerGas', () => {
-    expect(transaction.maxPriorityFeePerGas).toEqual(anOriginalTx.maxPriorityFeePerGas);
+    expect(transaction.maxPriorityFeePerGas).toEqual(
+      anOriginalTx.maxPriorityFeePerGas,
+    );
   });
 
   test('maxFeePerGas', () => {
@@ -97,6 +97,8 @@ describe('LacchainTransaction ', () => {
   });
 
   test('unsignedSerialized', () => {
-    expect(transaction.unsignedSerialized).toEqual(anOriginalTx.unsignedSerialized);
+    expect(transaction.unsignedSerialized).toEqual(
+      anOriginalTx.unsignedSerialized,
+    );
   });
 });

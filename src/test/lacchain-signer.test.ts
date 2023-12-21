@@ -8,9 +8,7 @@ import {
   aSignedTxRequest,
 } from './fixtures';
 
-
 describe('LacchainSigner', () => {
-
   let signer: LacchainSigner;
 
   const aProvider = {} as Provider;
